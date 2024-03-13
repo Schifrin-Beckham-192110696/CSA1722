@@ -1,0 +1,12 @@
+from itertools import permutations
+def solve_cryptarithmetic():
+    for perm in permutations('0123456789', 6):
+        t,w,o,f,u,r = perm
+        if t == '0' or f == '0':
+            continue
+        two = int(t + w + o)
+        four = int(f + o + u + r)
+        if two + two == four:
+            return f"TWO: {two}, TWO: {two}, FOUR: {four}"
+    return "No solution found"
+print(solve_cryptarithmetic())
